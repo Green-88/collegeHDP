@@ -1,0 +1,403 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #2c3e50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input, select, textarea, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+button {
+  background: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+.ticket-list {
+  margin-top: 30px;
+}
+
+.ticket {
+  background: #ecf0f1;
+  padding: 15px;
+  border-left: 5px solid #3498db;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  position: relative;
+}
+
+.ticket strong {
+  color: #2c3e50;
+}
+
+.solution {
+  background: #dff9d8;
+  padding: 10px;
+  margin-top: 10px;
+  border-left: 4px solid #27ae60;
+  border-radius: 6px;
+}
+
+.status {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.priority {
+  font-size: 0.9em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.priority-low { background: #27ae60; color: white; }
+.priority-medium { background: #f39c12; color: white; }
+.priority-high { background: #e74c3c; color: white; }
+.priority-critical { background: #8e44ad; color: white; }
+
+.pending { background: #f39c12; color: white; }
+.solved { background: #27ae60; color: white; }
+
+#studentSection, #staffSection {
+  display: none;
+}
+
+/* Loading indicator */
+.loading {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  color: #3498db;
+  font-weight: bold;
+}
+
+/* Success/error messages */
+.alert {
+  padding: 12px;
+  border-radius: 6px;
+  margin: 10px 0;
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.success { 
+  background: #d4edda; 
+  color: #155724; 
+  border: 1px solid #c3e6cb; 
+}
+
+.error { 
+  background: #f8d7da; 
+  color: #721c24; 
+  border: 1px solid #f5c6cb; 
+}
+
+.warning { 
+  background: #fff3cd; 
+  color: #856404; 
+  border: 1px solid #ffeaa7; 
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filters input, .filters select {
+  margin-top: 0;
+}
+
+.filters button {
+  margin-top: 0;
+  height: 40px;
+}
+
+/* Character counter */
+#charCount {
+  font-size: 0.9em;
+  color: #7f8c8d;
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* Stats */
+.stats {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.stats span {
+  color: #2c3e50;
+}
+
+/* Ticket actions */
+.ticket-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.ticket-date {
+  font-size: 0.85em;
+  color: #7f8c8d;
+  margin-top: 5px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+    margin: 10px auto;
+  }
+
+  header {
+    font-size: 1.3em;
+    padding: 12px;
+  }
+
+  input, select, textarea, button {
+    font-size: 0.95em;
+    padding: 8px;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+
+  .ticket {
+    padding: 12px;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters input, .filters select {
+    width: 100%;
+  }
+
+  .ticket-actions {
+    flex-direction: column;
+  }
+
+  .ticket-actions button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+/* File Upload Styles */
+.file-upload-area {
+  margin: 15px 0;
+}
+
+.file-drop-zone {
+  border: 2px dashed #3498db;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.file-drop-zone:hover {
+  background-color: #e8f4fc;
+  border-color: #2980b9;
+}
+
+.file-drop-zone.drag-over {
+  background-color: #d4edda;
+  border-color: #27ae60;
+}
+
+.file-drop-zone p {
+  margin: 5px 0;
+  color: #2c3e50;
+}
+
+.file-hint {
+  font-size: 0.9em;
+  color: #7f8c8d;
+  margin-top: 5px !important;
+}
+
+.browse-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  display: inline-block;
+  width: auto;
+}
+
+.browse-btn:hover {
+  background: #2980b9;
+}
+
+.file-preview {
+  margin-top: 15px;
+}
+
+.file-item {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.3s;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.file-icon {
+  font-size: 1.5em;
+}
+
+.file-name {
+  font-weight: bold;
+  color: #2c3e50;
+  word-break: break-all;
+}
+
+.file-size {
+  font-size: 0.9em;
+  color: #7f8c8d;
+}
+
+.remove-file {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.remove-file:hover {
+  background: #c0392b;
+}
+
+.attachment-badge {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  margin-left: 10px;
+  animation: fadeIn 0.3s;
+}
+
+.attachment-link {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.attachment-link:hover {
+  background: #2980b9;
+  text-decoration: none;
+  color: white;
+}
+
+.no-attachment {
+  color: #95a5a6;
+  font-style: italic;
+}
+
+/* Mobile responsiveness for file upload */
+@media (max-width: 600px) {
+  .file-drop-zone {
+    padding: 20px;
+  }
+  
+  .file-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .file-info {
+    width: 100%;
+  }
+  
+  .remove-file {
+    align-self: flex-end;
+  }
+}

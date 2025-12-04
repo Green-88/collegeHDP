@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Helpdesk Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>College Helpdesk Portal</header>
+  
+  <!-- Notification Area -->
+  <div id="notificationArea" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+  
+  <!-- Login Page -->
+  <div class="container" id="loginPage">
+    <h2>Login</h2>
+    <label>Username:</label>
+    <input type="text" id="username" required>
+    <label>Password:</label>
+    <input type="password" id="password" required>
+    <button id="loginBtn">Login</button>
+
+    <hr>
+
+    <h3>View Your Tickets</h3>
+    <label>Your Name:</label>
+    <input type="text" id="viewName" placeholder="Enter your name">
+    <label>Email:</label>
+    <input type="email" id="viewEmail" placeholder="Enter your email">
+    <button id="viewTicketsBtn">View Tickets</button>
+    <button id="clearViewBtn" style="background: #95a5a6; margin-left: 10px;">Clear</button>
+    
+    <div class="loading" id="viewLoading">Loading...</div>
+    <div class="ticket-list" id="viewTicketsList"></div>
+    
+    <div style="margin-top: 20px;">
+      <button id="exportTicketsBtn" style="background: #27ae60;">Export All Tickets (Staff Only)</button>
+    </div>
+  </div>
+
+  <!-- Student Section -->
+  <div class="container" id="studentSection">
+    <h2>Student Helpdesk</h2>
+    <form id="studentForm">
+      <label>Your Name:</label>
+      <input type="text" id="stuName" required maxlength="50">
+      <label>Email:</label>
+      <input type="email" id="stuEmail" required>
+      <label>Category:</label>
+      <select id="stuCategory" required>
+        <option value="">-- Select --</option>
+        <option value="Technical">Technical</option>
+        <option value="Academic">Academic</option>
+        <option value="Administration">Administration</option>
+        <option value="Other">Other</option>
+      </select>
+      <label>Priority:</label>
+      <select id="stuPriority">
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+        <option value="Critical">Critical</option>
+      </select>
+      <label>Issue (max 500 characters):</label>
+      <textarea id="stuIssue" rows="4" required maxlength="500"></textarea>
+      <div id="charCount">Characters remaining: 500</div>
+      
+      <!-- File Attachment Section -->
+      <label>Attach File (Optional):</label>
+      <div class="file-upload-area" id="fileUploadArea">
+        <input type="file" id="fileAttachment" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.txt" style="display: none;">
+        <div class="file-drop-zone" id="fileDropZone">
+          <p>📎 Click to browse or drag & drop files here</p>
+          <p class="file-hint">Supported: PDF, JPG, PNG, DOC, TXT (Max: 5MB)</p>
+          <button type="button" id="browseFileBtn" class="browse-btn">Browse Files</button>
+        </div>
+        <div id="filePreview" class="file-preview"></div>
+      </div>
+      
+      <button type="submit">Submit Ticket</button>
+    </form>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Staff Section -->
+  <div class="container" id="staffSection">
+    <h2>Staff Helpdesk Panel</h2>
+    
+    <!-- Filters -->
+    <div class="filters">
+      <input type="text" id="searchTickets" placeholder="Search tickets..." style="width: 40%;">
+      <select id="filterStatus" style="width: 25%;">
+        <option value="">All Status</option>
+        <option value="Pending">Pending</option>
+        <option value="Solved">Solved</option>
+      </select>
+      <select id="filterCategory" style="width: 25%;">
+        <option value="">All Categories</option>
+        <option value="Technical">Technical</option>
+        <option value="Academic">Academic</option>
+        <option value="Administration">Administration</option>
+        <option value="Other">Other</option>
+      </select>
+      <button id="clearFilters" style="width: auto; padding: 8px 12px;">Clear Filters</button>
+    </div>
+    
+    <div id="staffTickets"></div>
+    <div class="stats">
+      <p>Total Tickets: <span id="totalTickets">0</span> | 
+         Pending: <span id="pendingTickets">0</span> | 
+         Solved: <span id="solvedTickets">0</span></p>
+    </div>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
