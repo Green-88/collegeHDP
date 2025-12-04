@@ -17,12 +17,12 @@
 ## 🔐 Test Credentials
 
 ### 👤 Student Login  
-- **Username:** `student`  
-- **Password:** `student`  
+- **Username:** `user123`  
+- **Password:** `changeMe123!`  
 
 ### 👨‍💼 Staff Login  
-- **Username:** `staff`  
-- **Password:** `staff`  
+- **Username:** `admin456`  
+- **Password:** `securePass789!`  
 
 > These are demo accounts for testing only.  
 > Avoid storing real sensitive information.
